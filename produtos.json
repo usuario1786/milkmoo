@@ -71,7 +71,7 @@
           "sabor": "Morango com leite condensado",
           "ingredientes": "Leite integral, sorvete de morango, leite condensado, chantilly, morangos frescos e confeitos",
           "checkoutUrl": "hhttps://checkout.milkymoopedidos.site/VCCL1O8SCDSI",
-          "disponivel": true,
+          "disponivel": false,
           "opcoes": {
             "semGluten": true,
             "semLactose": false
