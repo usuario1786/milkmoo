@@ -70,8 +70,8 @@
           "descricao": "Milkshake especial Mimosa - 500ml",
           "sabor": "Morango com leite condensado",
           "ingredientes": "Leite integral, sorvete de morango, leite condensado, chantilly, morangos frescos e confeitos",
-          "checkoutUrl": "hhttps://checkout.milkymoopedidos.site/VCCL1O8SCDSI",
-          "disponivel": false,
+          "checkoutUrl": "https://checkout.milkymoopedidos.site/VCCL1O8SCDSI",
+          "disponivel": true,
           "opcoes": {
             "semGluten": true,
             "semLactose": false
