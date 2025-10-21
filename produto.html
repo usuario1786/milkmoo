@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="pt-br" translate="no">
+
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+	<script src="js/latest_1.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+	<!-- Microsoft Clarity -->
+	<script type="text/javascript">
+		(function(c,l,a,r,i,t,y){
+			c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+			t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+			y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+		})(window, document, "clarity", "script", "tn4r34mac9");
+	</script>
+
+
+
+	<meta name="google" content="notranslate">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/jpg" href="images/logo_milkmoo.jpg">
+	<title id="tituloProduto">Milk Moo - Produto</title>
+	<meta name="description" content="Produto da Milk Moo - Os melhores milkshakes artesanais">
+	<link type="text/css" href="css/delivry.css" rel="stylesheet">
+	<style type="text/css">
+		h1,
+		h2 {
+			color: #FF69B4;
+		}
+
+		header#topo .cover {
+			background-color: #FF69B4;
+		}
+
+		header#topo .info h1 {
+			color: #FF69B4;
+		}
+
+		header#topo .info .icones a {
+			color: #FF69B4;
+			border-color: #FF69B4;
+		}
+
+		header#topo .cover .logo {
+			background: #FF69B4;
+		}
+
+		header#topo #menuCategorias {
+			background: #FF69B4;
+		}
+
+		header#topo .categorias a {
+			border-top-color: #FF69B4;
+		}
+
+		footer {
+			background: #FF69B4;
+		}
+
+		footer#carrinho .container .icone span {
+			color: #FF69B4;
+		}
+
+		.btn,
+		a.voltar,
+		.btnSair,
+		.btnFidelidade,
+		.btnGoogle,
+		.btnEmail,
+		.btnSemCadastro {
+			background: #FF69B4;
+		}
+
+		.qtdeProduto i:hover {
+			color: #FF69B4;
+		}
+
+		.lista .item .col .nomeProduto {
+			color: #FF69B4;
+		}
+
+		main#lista .produtos .item a:hover {
+			border: 2px solid #FF69B4;
+		}
+
+		#pedido .entrega .radio label input[type="radio"]:checked,
+		#pedido .entrega .radio label:hover {
+			background: #FF69B4;
+		}
+
+		#pedido .pagamentos input[type="radio"]:checked+label::before,
+		#detalhesProduto .info2 .opcoes input[type="checkbox"]:checked+label::before,
+		#pedido .trocarPontos input[type="checkbox"]:checked+label::before {
+			background-color: #FF69B4;
+			border: 2px solid #FF69B4;
+		}
+
+		.selecionado {
+			border: 2px solid #FF69B4;
+		}
+
+		#meuCarrinho button.fechar,
+		#rastreamento .registro span.passou {
+			background: #FF69B4;
+		}
+
+		span.estoque i {
+			color: #FF69B4;
+		}
+	</style>
+	<meta name="theme-color" content="#FF69B4">
+	<meta name="apple-mobile-web-app-capacity" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar" content="#FF69B4">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#FF69B4">
+	<meta name="apple-mobile-web-app-title" content="Milk Moo">
+	<!-- SweetAlert2 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+</head>
+
+<body data-urlloja="milkmoo" data-pixel="123456" data-idusuario="1">
+	<div id="opacidade" class="fechar"></div>
+
+	<!-- Modal do Carrinho -->
+	<div id="meuCarrinho" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2><i class="fa-solid fa-shopping-cart"></i> Meu Pedido</h2>
+				<button class="fechar">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div id="itensCarrinho"></div>
+				<div class="total-carrinho">
+					<div class="subtotal">
+						<span>Subtotal:</span>
+						<span id="subtotalCarrinho">R$ 0,00</span>
+					</div>
+					<div class="entrega">
+						<span>Taxa de entrega:</span>
+						<span id="taxaEntrega">R$ 5,00</span>
+					</div>
+					<div class="total">
+						<span>Total:</span>
+						<span id="totalCarrinho">R$ 0,00</span>
+					</div>
+				</div>
+				<button id="btFinalizar" class="btn">Finalizar Pedido</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal de Loading -->
+	<div id="modalCarregando" class="modal-loading" style="display: none;">
+		<div class="spinner"></div>
+		<p>Processando...</p>
+	</div>
+
+	<header id="topo">
+		<div class="cover main" style="background-image: url(images/capa_milkshake.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;">
+			<div class="logo">
+				<figure>
+					<img src="images/logo_milkmoo.jpg" alt="Milk Moo" title="Milk Moo">
+				</figure>
+			</div>
+			<div class="borda"></div>
+		</div>
+		<!-- Botão de voltar no canto superior esquerdo -->
+		<div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+			<a href="index.html" class="btn-voltar" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.95); color: #FF69B4; padding: 12px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(255,105,180,0.3); transition: all 0.3s ease; border: 2px solid rgba(255,105,180,0.2); backdrop-filter: blur(10px);">
+				<i class="fa-solid fa-arrow-left" style="font-size: 16px;"></i>
+				Voltar
+			</a>
+		</div>
+	</header>
+
+	<main id="produto-detalhado" style="padding: 40px 0;">
+		<div class="container">
+			<div id="produto-container" style="max-width: 800px; margin: 0 auto;">
+				<!-- Produto será carregado dinamicamente aqui -->
+			</div>
+		</div>
+	</main>
+
+	<footer style="background: #FF69B4; color: white; padding: 40px 0; margin-top: 50px; width: 100%;">
+		<div class="container">
+			<!-- Logo centralizada -->
+			<div style="text-align: center; margin-bottom: 40px;">
+				<img src="images/logo_milkmoo.jpg" alt="Milk Moo" style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin-bottom: 20px;">
+				<h2 style="color: white; font-size: 24px; margin: 0; font-weight: 600;">Milk Moo</h2>
+				<p style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 10px 0 0 0;">
+					🥤 Milkshakes artesanais incríveis
+				</p>
+			</div>
+
+			<!-- Grid de informações -->
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 800px; margin: 0 auto;">
+				<!-- Sobre -->
+				<div style="text-align: center;">
+					<h3 style="color: white; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+						<i class="fa-solid fa-star" style="margin-right: 8px; color: #FFD700;"></i>
+						Sobre Nós
+					</h3>
+					<p style="color: rgba(255,255,255,0.9); line-height: 1.6;">
+						Somos especialistas em milkshakes artesanais, criados com ingredientes selecionados e muito amor.
+						Cada sabor é uma experiência única!
+					</p>
+				</div>
+
+				<!-- Horário -->
+				<div style="text-align: center;">
+					<h3 style="color: white; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
+						<i class="fa-solid fa-clock" style="margin-right: 8px; color: #FFD700;"></i>
+						Horário
+					</h3>
+					<p style="color: rgba(255,255,255,0.9); margin: 8px 0;">
+						<strong>Segunda a Domingo:</strong> 10:00 às 23:00
+					</p>
+					<p style="color: rgba(255,255,255,0.9); margin: 8px 0;">
+						<strong>Feriados:</strong> Funcionamento normal
+					</p>
+				</div>
+			</div>
+
+			<!-- Linha divisória -->
+			<div style="border-top: 1px solid rgba(255,255,255,0.2); margin: 40px 0 0 0; padding-top: 20px; text-align: center;">
+				<p style="color: rgba(255,255,255,0.8); font-size: 14px; margin: 0;">
+					<i class="fa-solid fa-copyright" style="margin-right: 5px;"></i>
+					2024 Milk Moo. Todos os direitos reservados.
+				</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script>
+		// Obter parâmetros da URL
+		const urlParams = new URLSearchParams(window.location.search);
+		const produtoId = urlParams.get('id');
+
+		// Função para capturar e armazenar parâmetros UTM
+		function capturarParametrosUTM() {
+			const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+			const paramsToStore = {};
+
+			utmParams.forEach(param => {
+				const value = urlParams.get(param);
+				if (value) {
+					paramsToStore[param] = value;
+				}
+			});
+
+			// Também capturar outros parâmetros importantes
+			const additionalParams = ['fbclid', 'gclid', 'xcod', 'src'];
+			additionalParams.forEach(param => {
+				const value = urlParams.get(param);
+				if (value) {
+					paramsToStore[param] = value;
+				}
+			});
+
+			// Armazenar no localStorage se houver parâmetros
+			if (Object.keys(paramsToStore).length > 0) {
+				localStorage.setItem('milkmoo_utm_params', JSON.stringify(paramsToStore));
+			}
+		}
+
+		// Função para obter parâmetros UTM armazenados
+		function obterParametrosUTM() {
+			const stored = localStorage.getItem('milkmoo_utm_params');
+			return stored ? JSON.parse(stored) : {};
+		}
+
+		// Função para adicionar parâmetros UTM à URL
+		function adicionarParametrosUTM(url) {
+			const utmParams = obterParametrosUTM();
+			if (Object.keys(utmParams).length === 0) return url;
+
+			const urlObj = new URL(url);
+			Object.keys(utmParams).forEach(param => {
+				urlObj.searchParams.set(param, utmParams[param]);
+			});
+
+			return urlObj.toString();
+		}
+
+		$(document).ready(function() {
+			// Capturar parâmetros UTM na inicialização
+			capturarParametrosUTM();
+			if (produtoId) {
+				carregarProduto(produtoId);
+			} else {
+				mostrarPopup('Erro', 'Produto não encontrado');
+			}
+
+			// Eventos
+			$(document).on('click', '.verSacola', function(e) {
+				e.preventDefault();
+				mostrarCarrinho();
+			});
+
+			$(document).on('click', '.adicionarProduto', function(e) {
+				e.preventDefault();
+				
+				// Obter o ID do produto atual
+				const produtoId = $('#idProduto').val();
+				
+				// Buscar o produto no JSON para obter o checkoutUrl
+				$.getJSON('produtos.json', function(data) {
+					let produtoEncontrado = null;
+					
+					data.categorias.forEach(function(categoria) {
+						categoria.produtos.forEach(function(p) {
+							if (p.id === produtoId) {
+								produtoEncontrado = p;
+							}
+						});
+					});
+					
+					if (produtoEncontrado && produtoEncontrado.checkoutUrl) {
+						// Adicionar parâmetros UTM à URL do checkout
+						const checkoutUrlComUTM = adicionarParametrosUTM(produtoEncontrado.checkoutUrl);
+						// Redirecionar para o checkout com UTM
+						window.location.href = checkoutUrlComUTM;
+					} else {
+						mostrarPopup('Erro', 'Link de checkout não encontrado');
+					}
+				}).fail(function() {
+					mostrarPopup('Erro', 'Não foi possível processar o pedido');
+				});
+			});
+
+			$(document).on('click', '.fechar', function(e) {
+				e.preventDefault();
+				$('#opacidade').removeClass('opacidade');
+				$('#meuCarrinho').removeClass('mostrar');
+				$('body').css('overflow', 'auto');
+			});
+		});
+
+		function carregarProduto(produtoId) {
+			$.getJSON('produtos.json', function(data) {
+				let produto = null;
+
+				// Procurar produto em todas as categorias
+				data.categorias.forEach(function(categoria) {
+					categoria.produtos.forEach(function(p) {
+						if (p.id === produtoId) {
+							produto = p;
+						}
+					});
+				});
+
+				if (produto) {
+					renderizarProduto(produto);
+					$('#tituloProduto').text(`${produto.nome} - Milk Moo`);
+
+					// Definir checkboxes baseado nas opções do produto
+					if (produto.opcoes) {
+						$('#semGluten').prop('checked', produto.opcoes.semGluten);
+						$('#semLactose').prop('checked', produto.opcoes.semLactose);
+					}
+				} else {
+					mostrarPopup('Erro', 'Produto não encontrado');
+				}
+			}).fail(function() {
+				mostrarPopup('Erro', 'Não foi possível carregar o produto');
+			});
+		}
+
+		function renderizarProduto(produto) {
+			let produtoHtml = '';
+
+			if (produto.tipo === 'combo') {
+				// Produto é um combo - mostrar interface de seleção
+				produtoHtml = `
+					<div id="detalhesProduto" class="produto-detalhes" style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); text-align: center;">
+						<input type="hidden" id="idProduto" value="${produto.id}">
+						<div class="info1" style="margin-bottom: 40px;">
+							<figure style="margin-bottom: 30px;">
+								<img id="produtoImagem" src="images/${produto.imagem}" alt="${produto.nome}" style="width: 300px; height: 300px; border-radius: 15px; object-fit: cover; border: 4px solid #FF69B4; box-shadow: 0 6px 20px rgba(255,105,180,0.3);">
+							</figure>
+							<h3 id="produtoNome" style="color: #FF69B4; font-size: 32px; margin: 0; font-weight: 700;">${produto.nome}</h3>
+							<p class="detalhe" id="produtoDescricao" style="color: #666; font-size: 18px; margin: 15px 0; line-height: 1.6;">${produto.descricao}</p>
+
+							<!-- Seletor de produtos do combo -->
+							<div id="combo-selector" style="background: linear-gradient(135deg, rgba(255,105,180,0.08), rgba(255,20,147,0.05)); padding: 25px; border-radius: 20px; border: 2px solid rgba(255,105,180,0.2); margin: 20px 0; box-shadow: 0 4px 15px rgba(255,105,180,0.1);">
+								<div style="text-align: center; margin-bottom: 20px;">
+									<h4 style="color: #FF69B4; margin: 0; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;">
+										<i class="fa-solid fa-list-check" style="color: #FF1493;"></i>
+										Escolha ${produto.quantidadeItens} milkshake(s)
+									</h4>
+									<p style="color: #666; font-size: 14px; margin: 8px 0 0 0;">Selecione os produtos que deseja no seu combo</p>
+								</div>
+
+								<!-- Contador de seleção -->
+								<div id="combo-progress" style="background: rgba(76, 175, 80, 0.1); padding: 12px 20px; border-radius: 25px; margin-bottom: 20px; text-align: center; border: 2px solid rgba(76, 175, 80, 0.2);">
+									<div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+										<i class="fa-solid fa-shopping-cart" style="color: #4CAF50; font-size: 18px;"></i>
+										<span style="color: #4CAF50; font-size: 16px; font-weight: 600;">
+											<span id="count-selecionados">0</span>/${produto.quantidadeItens} selecionados
+										</span>
+									</div>
+									<div style="background: #4CAF50; height: 4px; border-radius: 2px; margin-top: 8px; transition: width 0.3s ease;">
+										<div id="progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #4CAF50, #45a049); border-radius: 2px; transition: width 0.3s ease;"></div>
+									</div>
+								</div>
+
+								<div id="produtos-combo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; max-height: 400px; overflow-y: auto; padding: 10px;">
+									<!-- Produtos serão carregados dinamicamente -->
+								</div>
+
+								<!-- Área de produtos selecionados -->
+								<div id="combo-selecionados-area" style="margin-top: 20px; padding: 15px; background: rgba(76, 175, 80, 0.05); border-radius: 12px; border: 2px solid rgba(76, 175, 80, 0.2); display: none;">
+									<h5 style="color: #4CAF50; margin: 0 0 10px 0; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+										<i class="fa-solid fa-check-circle"></i>
+										Produtos Selecionados:
+									</h5>
+									<div id="lista-selecionados" style="display: flex; flex-wrap: wrap; gap: 8px;">
+										<!-- Produtos selecionados aparecerão aqui -->
+									</div>
+								</div>
+						</div>
+					</div>
+					
+					<!-- Preço e Botão do Combo -->
+					<div class="info3" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+						<div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+							<div class="precoProduto" id="produtoPreco" style="font-size: 32px; font-weight: 700; color: var(--text-dark); margin: 0; line-height: 1;">R$ ${parseFloat(produto.preco).toFixed(2)}</div>
+							<button class="btn adicionarProduto" style="background: var(--text-dark); color: white; border: none; padding: 16px 40px; font-size: 16px; font-weight: 600; border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 8px;" disabled>
+								<i class="fa-brands fa-whatsapp"></i>
+								Pedir Agora
+							</button>
+						</div>
+					</div>
+				</div>
+				`;
+
+				$('#produto-container').html(produtoHtml);
+
+				// Carregar produtos disponíveis para o combo
+				carregarProdutosCombo(produto.produtosDisponiveis, produto.quantidadeItens);
+
+			} else {
+				// Produto normal - mostrar interface padrão
+				produtoHtml = `
+					<div id="detalhesProduto" class="produto-detalhes" style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); text-align: center;">
+						<input type="hidden" id="idProduto" value="${produto.id}">
+						<div class="info1" style="margin-bottom: 40px;">
+							<figure style="margin-bottom: 30px;">
+								<img id="produtoImagem" src="images/${produto.imagem}" alt="${produto.nome}" style="width: 300px; height: 300px; border-radius: 15px; object-fit: cover; border: 4px solid #FF69B4; box-shadow: 0 6px 20px rgba(255,105,180,0.3);">
+							</figure>
+							<h3 id="produtoNome" style="color: #FF69B4; font-size: 32px; margin: 0; font-weight: 700;">${produto.nome}</h3>
+							<div style="background: rgba(255,105,180,0.1); padding: 8px 16px; border-radius: 20px; display: inline-block; margin: 10px 0;">
+								<p id="produtoSabor" style="color: #FF69B4; font-size: 14px; margin: 0; font-weight: 600;">🍦 ${produto.sabor || 'Sabor especial'}</p>
+							</div>
+							<p class="detalhe" id="produtoDescricao" style="color: #666; font-size: 18px; margin: 15px 0; line-height: 1.6;">${produto.descricao}</p>
+							<div style="background: rgba(255,105,180,0.05); padding: 15px; border-radius: 10px; border-left: 3px solid #FF69B4; margin: 15px 0;">
+								<p style="color: #333; font-size: 14px; margin: 0; line-height: 1.5;">
+									<strong style="color: #FF69B4;">🥛 Ingredientes:</strong><br>
+									<span id="produtoIngredientes">${produto.ingredientes || 'Ingredientes selecionados especialmente para você'}</span>
+								</p>
+							</div>
+							<div style="background: rgba(255,165,0,0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #FF8C00; margin: 15px 0;">
+								<p style="color: #333; font-size: 12px; margin: 0; line-height: 1.4;">
+									<strong style="color: #FF8C00;">⚠️ Atenção:</strong> Todos os nossos milkshakes podem conter traços de alergênicos: soja, castanhas, lactose, glúten e ovo. Para mais informações consulte nossa tabela nutricional.
+								</p>
+							</div>
+							<div style="background: rgba(76, 175, 80, 0.05); padding: 15px; border-radius: 10px; border-left: 3px solid #4CAF50; margin: 15px 0;">
+								<p style="color: #333; font-size: 14px; margin: 0 0 10px 0; font-weight: 600;">
+									<strong style="color: #4CAF50;">✅ Opções Disponíveis:</strong>
+								</p>
+								<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+									<label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #333;">
+										<input type="checkbox" id="semGluten" style="width: 16px; height: 16px; accent-color: #4CAF50;">
+										<span>Sem Glúten</span>
+									</label>
+									<label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #333;">
+										<input type="checkbox" id="semLactose" style="width: 16px; height: 16px; accent-color: #4CAF50;">
+										<span>Sem Lactose</span>
+									</label>
+								</div>
+							</div>
+					</div>
+					
+					<!-- Preço e Botão -->
+					<div class="info3" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+						<div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+							<div class="precoProduto" id="produtoPreco" style="font-size: 32px; font-weight: 700; color: var(--text-dark); margin: 0; line-height: 1;">R$ ${parseFloat(produto.preco).toFixed(2)}</div>
+							<button class="btn adicionarProduto" style="background: var(--text-dark); color: white; border: none; padding: 16px 40px; font-size: 16px; font-weight: 600; border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 8px;">
+								<i class="fa-brands fa-whatsapp"></i>
+								Pedir Agora
+							</button>
+						</div>
+					</div>
+				</div>
+				`;
+
+				$('#produto-container').html(produtoHtml);
+
+				// Definir checkboxes baseado nas opções do produto
+				if (produto.opcoes) {
+					$('#semGluten').prop('checked', produto.opcoes.semGluten);
+					$('#semLactose').prop('checked', produto.opcoes.semLactose);
+				}
+			}
+		}
+
+		// Carrinho de compras (reutilizado da página inicial)
+		let carrinho = [];
+		let produtosComboSelecionados = [];
+
+		function carregarProdutosCombo(produtosDisponiveis, quantidadeMaxima) {
+			$.getJSON('produtos.json', function(data) {
+				let produtosHtml = '';
+
+				// Encontrar produtos disponíveis
+				data.categorias.forEach(function(categoria) {
+					categoria.produtos.forEach(function(produto) {
+						if (produtosDisponiveis.includes(produto.id)) {
+							produtosHtml += `
+								<div class="produto-combo-item" data-id="${produto.id}" style="background: white; border: 2px solid #e0e0e0; border-radius: 12px; padding: 12px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden;">
+									<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,105,180,0.1), rgba(255,20,147,0.05)); opacity: 0; transition: opacity 0.3s ease;"></div>
+									<img src="images/${produto.imagem}" alt="${produto.nome}" style="width: 70px; height: 70px; border-radius: 10px; object-fit: cover; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+									<h5 style="color: #FF69B4; font-size: 13px; margin: 0; font-weight: 600; line-height: 1.2;">${produto.nome}</h5>
+									<p style="color: #666; font-size: 11px; margin: 6px 0; font-weight: 500;">R$ ${parseFloat(produto.preco).toFixed(2)}</p>
+									<div style="position: absolute; top: 8px; right: 8px; width: 20px; height: 20px; background: rgba(255,105,180,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+										<i class="fa-solid fa-check" style="font-size: 10px; color: #FF69B4;"></i>
+									</div>
+								</div>
+							`;
+						}
+					});
+				});
+
+				$('#produtos-combo').html(produtosHtml);
+
+				// Adicionar eventos de clique
+				$('.produto-combo-item').on('click', function() {
+					const produtoId = $(this).data('id');
+					const $produto = $(this);
+
+					if (produtosComboSelecionados.includes(produtoId)) {
+						// Remover seleção
+						produtosComboSelecionados = produtosComboSelecionados.filter(id => id !== produtoId);
+						$produto.css('border-color', '#e0e0e0').css('background', 'white');
+						$produto.find('.fa-check').parent().css('opacity', '0');
+					} else {
+						// Adicionar seleção (se não exceder o limite)
+						if (produtosComboSelecionados.length < quantidadeMaxima) {
+							produtosComboSelecionados.push(produtoId);
+							$produto.css('border-color', '#FF69B4').css('background', 'linear-gradient(135deg, rgba(255,105,180,0.05), rgba(255,20,147,0.02))');
+							$produto.find('.fa-check').parent().css('opacity', '1');
+						} else {
+							mostrarPopup('Atenção', `Você pode selecionar no máximo ${quantidadeMaxima} produtos para este combo.`);
+						}
+					}
+
+					// Atualizar contador e barra de progresso
+					const progresso = (produtosComboSelecionados.length / quantidadeMaxima) * 100;
+					$('#count-selecionados').text(produtosComboSelecionados.length);
+					$('#progress-bar').css('width', progresso + '%');
+
+					// Atualizar área de selecionados
+					atualizarListaSelecionados();
+
+					// Habilitar/desabilitar botão
+					if (produtosComboSelecionados.length === quantidadeMaxima) {
+						$('.adicionarProduto').prop('disabled', false).css('opacity', '1');
+					} else {
+						$('.adicionarProduto').prop('disabled', true).css('opacity', '0.5');
+					}
+				});
+			});
+		}
+
+		function atualizarListaSelecionados() {
+			if (produtosComboSelecionados.length === 0) {
+				$('#combo-selecionados-area').hide();
+				return;
+			}
+
+			$('#combo-selecionados-area').show();
+
+			// Buscar nomes dos produtos selecionados
+			$.getJSON('produtos.json', function(data) {
+				let selecionadosHtml = '';
+
+				data.categorias.forEach(function(categoria) {
+					categoria.produtos.forEach(function(produto) {
+						if (produtosComboSelecionados.includes(produto.id)) {
+							selecionadosHtml += `
+								<span style="background: #4CAF50; color: white; padding: 4px 12px; border-radius: 15px; font-size: 11px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
+									<i class="fa-solid fa-check" style="font-size: 8px;"></i>
+									${produto.nome}
+								</span>
+							`;
+						}
+					});
+				});
+
+				$('#lista-selecionados').html(selecionadosHtml);
+			});
+		}
+
+		function adicionarAoCarrinho() {
+			const produtoId = $('#idProduto').val();
+
+			if (!produtoId) {
+				mostrarPopup('Erro', 'Produto não encontrado');
+				return;
+			}
+
+			// Recarregar produtos para obter dados atualizados
+			$.getJSON('produtos.json', function(data) {
+				let produto = null;
+
+				data.categorias.forEach(function(categoria) {
+					categoria.produtos.forEach(function(p) {
+						if (p.id === produtoId) {
+							produto = p;
+						}
+					});
+				});
+
+				if (produto) {
+					// Verificar se é um combo
+					if (produto.tipo === 'combo') {
+						// Verificar se todos os produtos foram selecionados
+						if (produtosComboSelecionados.length !== produto.quantidadeItens) {
+							mostrarPopup('Erro', `Você deve selecionar exatamente ${produto.quantidadeItens} produtos para este combo.`);
+							return;
+						}
+
+						// Adicionar combo com produtos selecionados
+						carrinho.push({
+							id: produto.id,
+							nome: produto.nome,
+							preco: parseFloat(produto.preco),
+							qtde: 1,
+							imagem: produto.imagem,
+							tipo: 'combo',
+							produtosSelecionados: produtosComboSelecionados,
+							opcoes: produto.opcoes || {semGluten: false, semLactose: false}
+						});
+
+						atualizarContadorCarrinho();
+						mostrarPopup('Sucesso', `${produto.nome} adicionado ao carrinho!`);
+
+						// Resetar seleção
+						produtosComboSelecionados = [];
+						$('#count-selecionados').text('0');
+						$('.produto-combo-item').css('border-color', '#ddd');
+						$('.adicionarProduto').prop('disabled', true).css('opacity', '0.5');
+
+					} else {
+						// Produto normal
+						const opcoesSelecionadas = {
+							semGluten: $('#semGluten').is(':checked'),
+							semLactose: $('#semLactose').is(':checked')
+						};
+
+						carrinho.push({
+							id: produto.id,
+							nome: produto.nome,
+							preco: parseFloat(produto.preco),
+							qtde: 1,
+							imagem: produto.imagem,
+							opcoes: opcoesSelecionadas
+						});
+
+						atualizarContadorCarrinho();
+						mostrarPopup('Sucesso', `${produto.nome} adicionado ao carrinho!`);
+					}
+				}
+			});
+		}
+
+		function atualizarContadorCarrinho() {
+			const totalItens = carrinho.reduce(function(total, item) {
+				return total + item.qtde;
+			}, 0);
+
+			$('.contador-carrinho').text(totalItens);
+		}
+
+		function mostrarCarrinho() {
+			if (carrinho.length === 0) {
+				$('#itensCarrinho').html('<p>Carrinho vazio</p>');
+				$('#subtotalCarrinho').text('R$ 0,00');
+				$('#totalCarrinho').text('R$ 0,00');
+			} else {
+				let itensHtml = '';
+				let subtotal = 0;
+
+				carrinho.forEach(function(item) {
+					const totalItem = item.preco * item.qtde;
+					subtotal += totalItem;
+
+					// Construir lista de opções selecionadas
+					let opcoesTexto = '';
+					if (item.opcoes) {
+						const opcoesArray = [];
+						if (item.opcoes.semGluten) opcoesArray.push('Sem Glúten');
+						if (item.opcoes.semLactose) opcoesArray.push('Sem Lactose');
+						opcoesTexto = opcoesArray.length > 0 ? `<p><small>Opções: ${opcoesArray.join(', ')}</small></p>` : '';
+					}
+
+					// Construir lista de produtos do combo
+					let produtosComboTexto = '';
+					if (item.tipo === 'combo' && item.produtosSelecionados) {
+						produtosComboTexto = `<p><small>Produtos: ${item.produtosSelecionados.length} selecionados</small></p>`;
+					}
+
+					itensHtml += `
+						<div class="item-carrinho">
+							<div class="info-item">
+								<img src="images/${item.imagem}" width="50px" height="50px" alt="${item.nome}">
+								<div class="detalhes">
+									<h4>${item.nome}</h4>
+									<p>Qtde: ${item.qtde}</p>
+									${produtosComboTexto}
+									${opcoesTexto}
+								</div>
+							</div>
+							<div class="preco-item">
+								R$ ${totalItem.toFixed(2)}
+							</div>
+						</div>
+					`;
+				});
+
+				$('#itensCarrinho').html(itensHtml);
+
+				const taxaEntrega = 5.00;
+				const total = subtotal + taxaEntrega;
+
+				$('#subtotalCarrinho').text(`R$ ${subtotal.toFixed(2)}`);
+				$('#taxaEntrega').text(`R$ ${taxaEntrega.toFixed(2)}`);
+				$('#totalCarrinho').text(`R$ ${total.toFixed(2)}`);
+			}
+
+			$('#opacidade').addClass('opacidade');
+			$('#meuCarrinho').addClass('mostrar');
+			$('body').css('overflow', 'hidden');
+		}
+
+		function mostrarPopup(titulo, mensagem) {
+			Swal.fire({
+				title: titulo,
+				text: mensagem,
+				icon: titulo.toLowerCase().includes('erro') ? 'error' : 'success',
+				confirmButtonText: 'OK',
+				confirmButtonColor: '#FF69B4'
+			});
+		}
+	</script>
+</body>
+
+</html>

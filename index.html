@@ -1,0 +1,955 @@
+<!DOCTYPE html><html lang="pt-br" translate="no"><head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+
+	<script src="js/latest_1.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+	<!-- Microsoft Clarity -->
+
+
+	<script>
+		window.pixelId = "67c0b9e769bd5c8ca0d11786";
+		var a = document.createElement("script");
+		a.setAttribute("async", "");
+		a.setAttribute("defer", "");
+		a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+		document.head.appendChild(a);
+	</script>
+
+	<meta name="google" content="notranslate">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/jpg" href="images/logo_milkmoo.jpg">
+	<title>Milk Moo - Os Melhores Milkshakes!</title>
+	<meta name="description" content="Faça seu pedido online na Milk Moo. Os melhores milkshakes artesanais com entrega rápida!">
+	<link type="text/css" href="css/delivry.css" rel="stylesheet">
+	<style type="text/css">
+		h1,
+		h2 {
+			color: #FF69B4;
+		}
+
+		header#topo .cover {
+			background-color: #FF69B4;
+		}
+
+		header#topo .info h1 {
+			color: #FF69B4;
+		}
+
+		header#topo .info .icones a {
+			color: #FF69B4;
+			border-color: #FF69B4;
+		}
+
+		header#topo .cover .logo {
+			background: transparent;
+		}
+
+		footer {
+			background: #FF69B4;
+		}
+
+		footer#carrinho .container .icone span {
+			color: #FF69B4;
+		}
+
+		.btn,
+		a.voltar,
+		.btnSair,
+		.btnFidelidade,
+		.btnGoogle,
+		.btnEmail,
+		.btnSemCadastro {
+			background: #FF69B4;
+		}
+
+		.qtdeProduto i:hover {
+			color: #FF69B4;
+		}
+
+		.lista .item .col .nomeProduto {
+			color: #FF69B4;
+		}
+
+		main#lista .produtos .item a:hover {
+			border: 2px solid #FF69B4;
+		}
+
+		#pedido .entrega .radio label input[type="radio"]:checked,
+		#pedido .entrega .radio label:hover {
+			background: #FF69B4;
+		}
+
+		#pedido .pagamentos input[type="radio"]:checked+label::before,
+		#detalhesProduto .info2 .opcoes input[type="checkbox"]:checked+label::before,
+		#pedido .trocarPontos input[type="checkbox"]:checked+label::before {
+			background-color: #FF69B4;
+			border: 2px solid #FF69B4;
+		}
+
+		.selecionado {
+			border: 2px solid #FF69B4;
+		}
+
+		#meuCarrinho button.fechar,
+		#rastreamento .registro span.passou {
+			background: #FF69B4;
+		}
+
+		span.estoque i {
+			color: #FF69B4;
+		}
+	</style>
+	<meta name="theme-color" content="#FF69B4">
+	<meta name="apple-mobile-web-app-capacity" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar" content="#FF69B4">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#FF69B4">
+	<meta name="apple-mobile-web-app-title" content="Milk Moo">
+	<!-- SweetAlert2 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+</head>
+
+<body data-urlloja="milkmoo" data-pixel="123456" data-idusuario="1">
+	<div id="opacidade" class="fechar"></div>
+
+	<!-- Popup de Seleção de Localização -->
+	<div id="locationModal" class="modal" style="display: none;">
+		<div class="modal-content" style="max-width: 500px; margin: 50px auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+			<div style="text-align: center; margin-bottom: 30px;">
+				<img src="images/logo_milkmoo.jpg" alt="Milk Moo" style="width: 120px; height: auto; margin: 0 auto 20px; display: block;">
+				<h2 style="color: #FF69B4; margin: 0; font-size: 24px; font-weight: 600;">Bem-vindo à Milk Moo!</h2>
+				<p style="color: #666; margin: 10px 0 0 0; font-size: 16px;">Informe sua localização para verificar se temos uma unidade próxima a você</p>
+			</div>
+
+			<form id="locationForm">
+				<div style="margin-bottom: 25px;">
+					<label style="display: block; color: #333; font-weight: 600; margin-bottom: 8px; font-size: 14px;">
+						<i class="fa-solid fa-map" style="color: #FF69B4; margin-right: 8px;"></i>
+						Selecione seu Estado:
+					</label>
+					<select id="estadoSelect" style="width: 100%; padding: 12px 16px; border: 2px solid #ddd; border-radius: 10px; font-size: 16px; background: white; transition: border-color 0.3s ease;" required="">
+						<option value="">Escolha um estado...</option>
+						<!-- Estados serão carregados dinamicamente -->
+					</select>
+				</div>
+
+				<div style="margin-bottom: 30px;">
+					<label style="display: block; color: #333; font-weight: 600; margin-bottom: 8px; font-size: 14px;">
+						<i class="fa-solid fa-city" style="color: #FF69B4; margin-right: 8px;"></i>
+						Selecione sua Cidade:
+					</label>
+					<select id="cidadeSelect" style="width: 100%; padding: 12px 16px; border: 2px solid #ddd; border-radius: 10px; font-size: 16px; background: white; transition: border-color 0.3s ease;" disabled="" required="">
+						<option value="">Primeiro selecione um estado...</option>
+						<!-- Cidades serão carregadas dinamicamente -->
+					</select>
+				</div>
+
+				<div style="text-align: center;">
+					<button type="submit" style="background: linear-gradient(135deg, #FF69B4, #FF1493); color: white; border: none; padding: 15px 40px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255,105,180,0.3);">
+						<i class="fa-solid fa-check" style="margin-right: 8px;"></i>
+						Confirmar Localização
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Modal de Informações -->
+	<div id="info" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2><i class="fa-solid fa-info-circle"></i> Sobre a Milk Moo</h2>
+				<button class="fechar">�</button>
+			</div>
+			<div class="modal-body">
+				<p><strong>Milk Moo</strong> - Especializada em milkshakes artesanais com mais de 30 sabores incríveis!</p>
+				<p>Todos os nossos produtos podem conter traços de alergênicos: soja, castanhas, lactose, glúten e ovo.</p>
+				<p>Para mais informações consulte nossa tabela nutricional.</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal do Carrinho -->
+	<div id="meuCarrinho" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2><i class="fa-solid fa-shopping-cart"></i> Meu Pedido</h2>
+				<button class="fechar">�</button>
+			</div>
+			<div class="modal-body">
+				<div id="itensCarrinho"></div>
+				<div class="total-carrinho">
+					<div class="subtotal">
+						<span>Subtotal:</span>
+						<span id="subtotalCarrinho">R$ 0,00</span>
+					</div>
+					<div class="entrega">
+						<span>Taxa de entrega:</span>
+						<span id="taxaEntrega">R$ 5,00</span>
+					</div>
+					<div class="total">
+						<span>Total:</span>
+						<span id="totalCarrinho">R$ 0,00</span>
+					</div>
+				</div>
+				<button id="btFinalizar" class="btn">Finalizar Pedido</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal de Loading -->
+	<div id="modalCarregando" class="modal-loading" style="display: none;">
+		<div class="spinner"></div>
+		<p>Processando...</p>
+	</div>
+
+	<header id="topo">
+		<div class="cover main" style="background-image: url(images/capa_milkshake.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;">
+			<div class="logo">
+				<figure>
+					<img src="images/logo_milkmoo.jpg" alt="Milk Moo" title="Milk Moo">
+				</figure>
+			</div>
+			<div class="borda"></div>
+		</div>
+		<div class="container">
+			<div class="info">
+				<!-- Título e Status -->
+				<div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
+					<h1 style="margin: 0;">Milk Moo</h1>
+					<div class="aberto">
+						<i class="fa-solid fa-circle btn-pisca"></i>
+						<span id="status-loja">ABERTO</span>
+					</div>
+				</div>
+
+				<!-- Informações Principais em linha -->
+				<div style="display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; padding: 20px; background: var(--background-light); border-radius: var(--radius-md); margin-bottom: 16px;">
+					
+					<!-- Localização -->
+					<div style="display: flex; align-items: center; gap: 8px;">
+						<i class="fa-solid fa-map-marker-alt" style="color: var(--text-medium); font-size: 14px;"></i>
+						<span style="font-size: 14px; color: var(--text-dark); font-weight: 500;"><span id="localCidade">São Paulo</span>, <span id="localEstado">SP</span></span>
+					</div>
+
+					<!-- Avaliação -->
+					<div style="display: flex; align-items: center; gap: 8px;">
+						<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+						<span style="font-size: 14px; color: var(--text-dark); font-weight: 500;">4.9</span>
+						<span style="font-size: 13px; color: var(--text-medium);">(2.847)</span>
+					</div>
+
+					<!-- Tempo -->
+					<div style="display: flex; align-items: center; gap: 8px;">
+						<i class="fa-solid fa-clock" style="color: var(--text-medium); font-size: 14px;"></i>
+						<span style="font-size: 14px; color: var(--text-dark); font-weight: 500;">25-35 min</span>
+					</div>
+
+				</div>
+
+				<!-- Detalhes de Pedido -->
+				<div style="display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; font-size: 13px; color: var(--text-medium);">
+					<span><strong style="color: var(--text-dark);">Mínimo:</strong> R$ 15,00</span>
+					<span><strong style="color: var(--text-dark);">Entrega:</strong> R$ 5,00</span>
+				</div>
+			</div>
+		</div>
+			<div id="menuCategorias">
+				<div class="container">
+					<div class="categorias">
+						<a href="#promocao" class="ativo">Promoção</a>
+						<a href="#todos">Todos</a>
+						<a href="#queridinhos">Queridinhos</a>
+						<a href="#frutudos">Frutudos</a>
+						<a href="#decafezin">De Cafezin</a>
+						<a href="#chocolatudos">Chocolatudos</a>
+						<a href="#kids">Kids</a>
+						<a href="#alcoolicos">Alcoólicos</a>
+						<a href="#premium">Premium</a>
+					</div>
+				</div>
+			</div>
+	</header>
+
+	<main id="lista">
+		<div class="container">
+			<div class="alert alert-success">
+				<b>Entrega Rápida</b> para <b><span id="localCidadeEntrega"></span></b>!
+			</div>
+			<div class="alert alert-success" style="color: #FF69B4;outline: 2px solid #FF69B4;">
+				<b>+30 sabores do melhor milkshake do muuundo!!! 🥤✨</b>
+			</div>
+
+			<div id="promocao" class="categoria">
+				<h2>PROMOÇÃO</h2>
+				<div class="produtos" id="produtos-promocao">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="todos" class="categoria">
+				<h2>Todos os Sabores</h2>
+				<div class="produtos" id="produtos-todos">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="queridinhos" class="categoria">
+				<h2>QUERIDINHOS</h2>
+				<div class="produtos" id="produtos-queridinhos">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="frutudos" class="categoria">
+				<h2>FRUTUDOS</h2>
+				<div class="produtos" id="produtos-frutudos">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="decafezin" class="categoria">
+				<h2>DE CAFEZIN</h2>
+				<div class="produtos" id="produtos-decafezin">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="chocolatudos" class="categoria">
+				<h2>CHOCOLATUDOS</h2>
+				<div class="produtos" id="produtos-chocolatudos">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="kids" class="categoria">
+				<h2>KIDS</h2>
+				<div class="produtos" id="produtos-kids">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="alcoolicos" class="categoria">
+				<h2>ALCOÓLICOS</h2>
+				<div class="produtos" id="produtos-alcoolicos">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+
+			<div id="premium" class="categoria">
+				<h2>PREMIUM</h2>
+				<div class="produtos" id="produtos-premium">
+					<!-- Produtos serão carregados dinamicamente -->
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- Seção de Reviews -->
+	<section id="reviews" style="background: linear-gradient(135deg, #FFF5F8 0%, #FFF0F5 100%); padding: 80px 0; margin-top: 0;">
+		<div class="container">
+			<!-- Título da Seção -->
+			<div style="text-align: center; margin-bottom: 40px;">
+				<h2 style="color: var(--primary-color); font-size: 36px; font-weight: 700; margin: 0 0 16px 0;">
+					❤️ O Que Nossos Clientes Dizem
+				</h2>
+				<p style="color: var(--text-medium); font-size: 18px; margin: 0 0 32px 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+					Mais de 2.847 clientes apaixonados pelos nossos milkshakes!
+				</p>
+
+				<!-- Badge Reclame Aqui -->
+				<div style="display: inline-flex; align-items: center; gap: 24px; background: white; padding: 30px 50px; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); margin-bottom: 30px;">
+					<div style="text-align: left;">
+						<div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+							<img src="images/reclameaqui.png" alt="Reclame Aqui" style="height: 50px;">
+							<span style="color: var(--text-dark); font-size: 22px; font-weight: 700;">Nota Máxima</span>
+						</div>
+						<div style="display: flex; align-items: center; gap: 10px;">
+							<div style="display: flex; gap: 4px;">
+								<span style="color: #FFD700; font-size: 24px;">★</span>
+								<span style="color: #FFD700; font-size: 24px;">★</span>
+								<span style="color: #FFD700; font-size: 24px;">★</span>
+								<span style="color: #FFD700; font-size: 24px;">★</span>
+								<span style="color: #FFD700; font-size: 24px;">★</span>
+							</div>
+							<span style="color: var(--text-medium); font-size: 18px; font-weight: 700;">10.0</span>
+							<span style="color: var(--text-light); font-size: 15px;">• Ótima reputação</span>
+						</div>
+					</div>
+					<div style="width: 2px; height: 60px; background: var(--border-color);"></div>
+					<div style="text-align: center;">
+						<div style="color: var(--secondary-color); font-size: 32px; font-weight: 700; line-height: 1;">100%</div>
+						<div style="color: var(--text-medium); font-size: 14px; margin-top: 6px; font-weight: 500;">Voltariam a comprar</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Grid de Reviews -->
+			<div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
+				
+				<!-- Review 1 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avaliacao1.jpg" alt="Maria Silva" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">Maria Silva</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">05 de Outubro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Simplesmente PERFEITO! O milkshake Pintadinha é o melhor que já experimentei. Cremoso, saboroso e a entrega super rápida! 🥤❤️"
+						</p>
+					</div>
+				</div>
+
+				<!-- Review 2 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avaliacao2.webp" alt="João Santos" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">João Santos</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">04 de Outubro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Pedimos o Combo Família e foi incrível! 4 sabores diferentes, todos maravilhosos. As crianças amaram! Vale muito a pena! 👨‍👩‍👧‍👦"
+						</p>
+					</div>
+				</div>
+
+				<!-- Review 3 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avaliacao3.webp" alt="Ana Oliveira" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">Ana Oliveira</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">03 de Outubro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Melhor milkshake da cidade! O sabor Mimosa é divino 😍 Já virei cliente fiel. Atendimento impecável e produto de altíssima qualidade!"
+						</p>
+					</div>
+				</div>
+
+				<!-- Review 4 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avaliacao4.webp" alt="Carlos Ferreira" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">Carlos Ferreira</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">02 de Outubro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Experimentei o Diva (chocolate com avelã) e me apaixonei! Textura perfeita, bem gelado e chegou rapidinho. Recomendo demais! 🍫✨"
+						</p>
+					</div>
+				</div>
+
+				<!-- Review 5 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avalicao5.png" alt="Fernanda Costa" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">Fernanda Costa</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">01 de Outubro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Que descoberta maravilhosa! Pedi sem lactose e ficou incrível mesmo assim. Adorei a opção, super inclusivo! 💚 Voltarei a pedir sempre!"
+						</p>
+					</div>
+				</div>
+
+				<!-- Review 6 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avaliacao6.png" alt="Pedro Almeida" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">Pedro Almeida</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">30 de Setembro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Sabor Tempestade é sensacional! Muito chocolate, bem denso e cremoso. Embalagem caprichada, chegou geladinho. Top demais! 🔥"
+						</p>
+					</div>
+				</div>
+
+				<!-- Review 7 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avaliacao7.png" alt="Juliana Martins" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">Juliana Martins</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">29 de Setembro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Meu filho ama o sabor Bolinha! Como mãe, aprovo totalmente a qualidade. Ingredientes frescos, sabor autêntico. Parabéns! 👏🧒"
+						</p>
+					</div>
+				</div>
+
+				<!-- Review 8 -->
+				<div class="review-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition);">
+					<img src="images/avaliacao8.png" alt="Rafael Lima" style="width: 100%; height: 240px; object-fit: cover;">
+					<div style="padding: 20px;">
+						<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+							<div>
+								<h4 style="color: var(--text-dark); font-size: 16px; font-weight: 600; margin: 0 0 4px 0;">Rafael Lima</h4>
+								<p style="color: var(--text-light); font-size: 12px; margin: 0;">28 de Setembro de 2025</p>
+							</div>
+							<div style="display: flex; gap: 2px;">
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+								<i class="fa-solid fa-star" style="color: #FFD700; font-size: 14px;"></i>
+							</div>
+						</div>
+						<p style="color: var(--text-medium); font-size: 14px; line-height: 1.5; margin: 0;">
+							"Primeira vez que peço e já me surpreendeu! Combo Casal veio perfeito, bem embalado e com brindes. Atendimento nota 1000! 🎁⭐"
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- CTA Final -->
+			<div style="text-align: center; padding: 40px 20px; background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);">
+				<h3 style="color: var(--primary-color); font-size: 28px; font-weight: 700; margin: 0 0 16px 0;">
+					🎉 Faça Parte da Nossa Família!
+				</h3>
+				<p style="color: var(--text-medium); font-size: 16px; margin: 0 0 24px 0; max-width: 500px; margin-left: auto; margin-right: auto;">
+					Peça agora e descubra por que somos os favoritos! ⭐⭐⭐⭐⭐
+				</p>
+				<a href="#promocao" style="display: inline-flex; align-items: center; gap: 12px; background: var(--primary-color); color: white; padding: 16px 40px; border-radius: var(--radius-sm); text-decoration: none; font-weight: 600; font-size: 18px; transition: var(--transition); box-shadow: 0 4px 16px rgba(255,105,180,0.3);">
+					<i class="fa-solid fa-shopping-cart"></i>
+					Ver Cardápio
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<footer style="background: var(--background); color: var(--text-dark); padding: 48px 0 24px; margin-top: 0; width: 100%; border-top: 1px solid var(--border-color);">
+		<div class="container">
+			<!-- Logo e slogan -->
+			<div style="text-align: center; margin-bottom: 48px;">
+				<img src="images/logo_milkmoo.jpg" alt="Milk Moo" style="width: 80px; height: auto; margin-bottom: 16px;">
+				<h3 style="color: var(--text-dark); font-size: 18px; margin: 0; font-weight: 600;">Milk Moo</h3>
+				<p style="color: var(--text-medium); font-size: 14px; margin: 8px 0 0 0;">
+					Milkshakes artesanais incríveis 🥤
+				</p>
+			</div>
+
+			<!-- Grid de informações -->
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto 48px;">
+
+				<!-- Sobre -->
+				<div>
+					<h4 style="color: var(--text-dark); font-size: 14px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+						Sobre Nós
+					</h4>
+					<p style="color: var(--text-medium); line-height: 1.6; font-size: 14px;">
+						Especialistas em milkshakes artesanais, criados com ingredientes selecionados e muito amor.
+					</p>
+				</div>
+
+				<!-- Horário -->
+				<div>
+					<h4 style="color: var(--text-dark); font-size: 14px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+						Horário
+					</h4>
+					<p style="color: var(--text-medium); margin: 0 0 8px; font-size: 14px;">
+						Segunda a Domingo: 10:00 - 23:00
+					</p>
+					<p style="color: var(--text-medium); margin: 0; font-size: 14px;">
+						Feriados: Funcionamento normal
+					</p>
+				</div>
+
+				<!-- Contato -->
+				<div>
+					<h4 style="color: var(--text-dark); font-size: 14px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+						Atendimento
+					</h4>
+					<p style="color: var(--text-medium); margin: 0; font-size: 14px;">
+						Pedido mínimo: R$ 15,00
+					</p>
+					<p style="color: var(--text-medium); margin: 8px 0 0; font-size: 14px;">
+						Entrega: R$ 5,00
+					</p>
+				</div>
+			</div>
+
+			<!-- Copyright -->
+			<div style="border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center;">
+				<p style="color: var(--text-light); font-size: 12px; margin: 0;">
+					© 2024 Milk Moo. Todos os direitos reservados.
+				</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Produto Details Modal -->
+	<div id="produto" class="modal-fullscreen">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a class="voltar" href="#"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+			</div>
+			<div class="modal-body">
+				<div id="detalhesProduto" class="produto-detalhes">
+					<input type="hidden" id="idProduto">
+					<div class="info1">
+						<figure>
+							<img id="produtoImagem" src="" alt="">
+						</figure>
+						<h3 id="produtoNome"></h3>
+						<p class="detalhe" id="produtoDescricao"></p>
+					</div>
+					<div class="info2">
+						<label for="observacao">Observações:</label>
+						<textarea id="observacao" placeholder="Ex: sem chantilly, etc."></textarea>
+					</div>
+					<div class="info3">
+						<div class="precoProduto" id="produtoPreco"></div>
+						<div class="qtdeProduto">
+							<i class="fa-solid fa-minus removerQtde"></i>
+							<input type="number" class="qtde" value="1" min="1" max="10">
+							<i class="fa-solid fa-plus adicionarQtde"></i>
+						</div>
+						<button class="btn adicionarProduto">Adicionar ao Pedido</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<!-- Popup de Notificações de Compras -->
+	<div id="purchaseNotification" style="position: fixed; bottom: 20px; left: 20px; background: white; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: 12px; display: none; z-index: 9999; max-width: 280px; border-left: 3px solid var(--secondary-color); animation: slideInLeft 0.5s ease;">
+		<div style="display: flex; align-items: center; gap: 10px;">
+			<img id="notifImage" src="" alt="Produto" style="width: 45px; height: 45px; border-radius: var(--radius-sm); object-fit: cover; border: 2px solid var(--border-color);">
+			<div style="flex: 1; min-width: 0;">
+				<div style="display: flex; align-items: center; gap: 5px; margin-bottom: 2px;">
+					<i class="fa-solid fa-check-circle" style="color: var(--secondary-color); font-size: 11px;"></i>
+					<span style="color: var(--text-dark); font-size: 11px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" id="notifName"></span>
+				</div>
+				<p style="color: var(--text-medium); font-size: 10px; margin: 0 0 2px 0; line-height: 1.3;" id="notifProduct"></p>
+				<p style="color: var(--text-light); font-size: 9px; margin: 0;" id="notifTime"></p>
+			</div>
+			<button onclick="closeNotification()" style="background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 13px; padding: 0; line-height: 1; flex-shrink: 0;">
+				<i class="fa-solid fa-times"></i>
+			</button>
+		</div>
+	</div>
+
+	<style>
+		@keyframes slideInLeft {
+			from {
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+			to {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+
+		@keyframes slideOutLeft {
+			from {
+				transform: translateX(0);
+				opacity: 1;
+			}
+			to {
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+		}
+
+		#purchaseNotification.hide {
+			animation: slideOutLeft 0.5s ease;
+		}
+
+		@media (max-width: 768px) {
+			#purchaseNotification {
+				left: 10px !important;
+				right: 10px !important;
+				bottom: 10px !important;
+				max-width: calc(100% - 20px) !important;
+			}
+		}
+	</style>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/location-data.js"></script>
+	<script src="js/milkmoo.js"></script>
+
+	<script>
+		// Função para capturar e armazenar parâmetros UTM
+		function capturarParametrosUTM() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+			const paramsToStore = {};
+
+			utmParams.forEach(param => {
+				const value = urlParams.get(param);
+				if (value) {
+					paramsToStore[param] = value;
+				}
+			});
+
+			// Também capturar outros parâmetros importantes
+			const additionalParams = ['fbclid', 'gclid', 'xcod', 'src'];
+			additionalParams.forEach(param => {
+				const value = urlParams.get(param);
+				if (value) {
+					paramsToStore[param] = value;
+				}
+			});
+
+			// Armazenar no localStorage se houver parâmetros
+			if (Object.keys(paramsToStore).length > 0) {
+				localStorage.setItem('milkmoo_utm_params', JSON.stringify(paramsToStore));
+			}
+		}
+
+		// Função para obter parâmetros UTM armazenados
+		function obterParametrosUTM() {
+			const stored = localStorage.getItem('milkmoo_utm_params');
+			return stored ? JSON.parse(stored) : {};
+		}
+
+		// Função para adicionar parâmetros UTM à URL
+		function adicionarParametrosUTM(url) {
+			const utmParams = obterParametrosUTM();
+			if (Object.keys(utmParams).length === 0) return url;
+
+			const urlObj = new URL(url);
+			Object.keys(utmParams).forEach(param => {
+				urlObj.searchParams.set(param, utmParams[param]);
+			});
+
+			return urlObj.toString();
+		}
+
+		$(document).ready(function() {
+			// Capturar parâmetros UTM na inicialização
+			capturarParametrosUTM();
+
+			// Verificar e mostrar popup de localização
+			if (verificarPrimeiraVisita()) {
+				$('#locationModal').fadeIn(300);
+				$('body').css('overflow', 'hidden');
+			} else {
+				// Carregar localização salva
+				const { estado, cidade } = obterLocalizacaoSalva();
+				if (estado && cidade) {
+					$('#localEstado').text(estado);
+					$('#localCidade').text(cidade);
+					$('#localCidadeEntrega').text(cidade);
+				}
+			}
+
+			// Carregar estados ao abrir o modal
+			carregarEstados();
+
+			// Evento de mudança de estado
+			$('#estadoSelect').on('change', function() {
+				const uf = $(this).val();
+				carregarCidades(uf);
+			});
+
+			// Evento de submit do formulário de localização
+			$('#locationForm').on('submit', function(e) {
+				e.preventDefault();
+				const estado = $('#estadoSelect').val();
+				const cidade = $('#cidadeSelect').val();
+
+				if (!estado || !cidade) {
+					swal('Atenção', 'Por favor, selecione estado e cidade', 'warning');
+					return;
+				}
+
+				// Salvar localização
+				salvarLocalizacao(estado, cidade);
+
+				// Atualizar na interface
+				$('#localEstado').text(estado);
+				$('#localCidade').text(cidade);
+				$('#localCidadeEntrega').text(cidade);
+
+				// Fechar modal
+				$('#locationModal').fadeOut(300);
+				$('body').css('overflow', 'auto');
+
+				// Mensagem de sucesso
+				swal('Sucesso!', `Localização definida para ${cidade} - ${estado}`, 'success');
+			});
+
+			// Evento de clique nos produtos para abrir página de produto
+			$(document).on('click', '.produto-link', function(e) {
+				e.preventDefault();
+				const produtoId = $(this).data('id');
+				if (produtoId) {
+					window.location.href = `produto.html?id=${produtoId}`;
+				}
+			});
+
+			// Sistema de Notificações de Compras
+			const nomes = [
+				'Maria Silva', 'João Santos', 'Ana Oliveira', 'Carlos Ferreira',
+				'Fernanda Costa', 'Pedro Almeida', 'Juliana Martins', 'Rafael Lima',
+				'Camila Souza', 'Lucas Pereira', 'Beatriz Rocha', 'Thiago Alves',
+				'Amanda Ribeiro', 'Gabriel Costa', 'Larissa Dias', 'Felipe Cardoso',
+				'Mariana Lima', 'Bruno Silva', 'Isabela Santos', 'Ricardo Mendes',
+				'Patrícia Gomes', 'Rodrigo Freitas', 'Vanessa Barbosa', 'Diego Castro',
+				'Aline Martins', 'Gustavo Pinto', 'Natália Moura', 'Leandro Souza'
+			];
+
+			const cidades = [
+				'São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Porto Alegre',
+				'Salvador', 'Brasília', 'Fortaleza', 'Recife', 'Manaus',
+				'Belém', 'Goiânia', 'Campinas', 'São Luís', 'Natal',
+				'Campo Grande', 'João Pessoa', 'Teresina', 'Maceió', 'Vitória'
+			];
+
+			const produtos = [
+				{ nome: 'PINTADINHA', img: 'pintadinha.jpg' },
+				{ nome: 'MIMOSA', img: 'mimosa.jpg' },
+				{ nome: 'MALHADA', img: 'malhada.jpg' },
+				{ nome: 'DIVA', img: 'diva.jpg' },
+				{ nome: 'TEMPESTADE', img: 'tempestade.jpg' },
+				{ nome: 'COMBO CASAL', img: 'COMBO CASAL.png' },
+				{ nome: 'COMBO FAMÍLIA', img: 'COMBO amigos.png' },
+				{ nome: 'MINEIRA', img: 'mineira.jpg' },
+				{ nome: 'BOLINHA', img: 'bolinha.jpg' },
+				{ nome: 'CACAU', img: 'cacau.jpg' },
+				{ nome: 'HOLANDESA', img: 'holandesa.jpg' },
+				{ nome: 'ESTRELA', img: 'estrela.jpg' },
+				{ nome: 'CARMELA', img: 'carmela.jpg' },
+				{ nome: 'PANDORA', img: 'pandora.jpg' },
+				{ nome: 'MOO', img: 'moo.jpg' }
+			];
+
+			let notificationTimeout;
+			let isNotificationVisible = false;
+
+			function showPurchaseNotification() {
+				if (isNotificationVisible) return;
+
+				const nome = nomes[Math.floor(Math.random() * nomes.length)];
+				const cidade = cidades[Math.floor(Math.random() * cidades.length)];
+				const produto = produtos[Math.floor(Math.random() * produtos.length)];
+				const minutosAtras = Math.floor(Math.random() * 15) + 1;
+
+				$('#notifName').text(nome);
+				$('#notifProduct').html(`comprou <strong>${produto.nome}</strong> em ${cidade}`);
+				$('#notifTime').text(`${minutosAtras} ${minutosAtras === 1 ? 'minuto' : 'minutos'} atrás`);
+				$('#notifImage').attr('src', 'images/' + produto.img);
+
+				$('#purchaseNotification').removeClass('hide').fadeIn(400);
+				isNotificationVisible = true;
+
+				// Auto-fechar após 6 segundos
+				notificationTimeout = setTimeout(function() {
+					closeNotification();
+				}, 6000);
+			}
+
+			window.closeNotification = function() {
+				$('#purchaseNotification').addClass('hide');
+				setTimeout(function() {
+					$('#purchaseNotification').fadeOut(400, function() {
+						$('#purchaseNotification').removeClass('hide');
+						isNotificationVisible = false;
+					});
+				}, 500);
+				clearTimeout(notificationTimeout);
+			};
+
+			// Iniciar notificações após 5 segundos
+			setTimeout(function() {
+				showPurchaseNotification();
+			}, 5000);
+
+			// Mostrar notificações em intervalos aleatórios (entre 15 e 30 segundos)
+			setInterval(function() {
+				if (!isNotificationVisible) {
+					showPurchaseNotification();
+				}
+			}, Math.random() * 15000 + 15000);
+		});
+	</script>
+
+
+
+
+</body></html>

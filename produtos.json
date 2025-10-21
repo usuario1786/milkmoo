@@ -1,0 +1,650 @@
+{
+  "categorias": [
+    {
+      "nome": "PROMOÇÃO",
+      "produtos": [
+        {
+          "id": "combo-casal",
+          "nome": "COMBO CASAL",
+          "preco": "24.90",
+          "precoPromocao": "0",
+          "imagem": "COMBO CASAL.png",
+          "descricao": "Combo especial para casal - escolha 2 milkshakes 500ml",
+          "tipo": "combo",
+          "quantidadeItens": 2,
+          "produtosDisponiveis": ["pintadinha", "mimosa", "malhada", "pandora", "holandesa", "dori", "cacau", "lolita", "filo", "americana", "judite", "manhosa", "emilia", "flocos-de-neve", "graciosa", "cheirosa", "dengosa", "missy", "xonada", "moo", "mineira", "preta", "bisa", "diva", "domino", "preciosa", "tempestade", "poderosa"],
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630949274555&store=16309",
+          "disponivel": true,
+          "opcoes": {
+            "semGluten": false,
+            "semLactose": false
+          },
+          "tiposComplementos": []
+        },
+        {
+          "id": "combo-familia",
+          "nome": "COMBO FAMÍLIA",
+          "preco": "32.90",
+          "precoPromocao": "0",
+          "imagem": "COMBO amigos.png",
+          "descricao": "Combo especial para família - escolha 4 milkshakes 500ml",
+          "tipo": "combo",
+          "quantidadeItens": 4,
+          "produtosDisponiveis": ["pintadinha", "mimosa", "malhada", "pandora", "holandesa", "dori", "cacau", "lolita", "filo", "americana", "judite", "manhosa", "emilia", "flocos-de-neve", "graciosa", "cheirosa", "dengosa", "missy", "xonada", "moo", "mineira", "preta", "bisa", "diva", "domino", "preciosa", "tempestade", "poderosa"],
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630993422553&store=16309",
+          "disponivel": true,
+          "opcoes": {
+            "semGluten": false,
+            "semLactose": false
+          },
+          "tiposComplementos": []
+        }
+      ]
+    },
+    {
+      "nome": "QUERIDINHOS",
+      "produtos": [
+        {
+          "id": "pintadinha",
+          "nome": "PINTADINHA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "pintadinha.jpg",
+          "descricao": "Milkshake especial Pintadinha - 500ml",
+          "sabor": "Baunilha com chocolate",
+          "ingredientes": "Leite integral, sorvete de baunilha, calda de chocolate, chantilly, granulado colorido e biscoito",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630931157898&store=16309",
+          "disponivel": true,
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          },
+          "tiposComplementos": []
+        },
+        {
+          "id": "mimosa",
+          "nome": "MIMOSA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "mimosa.jpg",
+          "descricao": "Milkshake especial Mimosa - 500ml",
+          "sabor": "Morango com leite condensado",
+          "ingredientes": "Leite integral, sorvete de morango, leite condensado, chantilly, morangos frescos e confeitos",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630949912989&store=16309",
+          "disponivel": true,
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          },
+          "tiposComplementos": []
+        },
+        {
+          "id": "malhada",
+          "nome": "MALHADA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "malhada.jpg",
+          "descricao": "Milkshake especial Malhada - 500ml",
+          "sabor": "Baunilha com cookies",
+          "ingredientes": "Leite integral, sorvete de baunilha, cookies triturados, chantilly e calda de baunilha",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630953539386&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "pandora",
+          "nome": "PANDORA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "pandora.jpg",
+          "descricao": "Milkshake especial Pandora - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630953539386&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "holandesa",
+          "nome": "HOLANDESA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "holandesa.jpg",
+          "descricao": "Milkshake especial Holandesa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630966699789&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "dori",
+          "nome": "DORI",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "dori.jpg",
+          "descricao": "Milkshake especial Dori - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630945633591&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "cacau",
+          "nome": "CACAU",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "cacau.jpg",
+          "descricao": "Milkshake especial Cacau - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630997832534&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "lolita",
+          "nome": "LOLITA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "lolita.jpg",
+          "descricao": "Milkshake especial Lolita - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630934814138&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "filo",
+          "nome": "FILÓ",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "filo.jpg",
+          "descricao": "Milkshake especial Filó - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630977499557&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "americana",
+          "nome": "AMERICANA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "americana.jpg",
+          "descricao": "Milkshake especial Americana - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630933623836&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        }
+      ]
+    },
+    {
+      "nome": "FRUTUDOS",
+      "produtos": [
+        {
+          "id": "judite",
+          "nome": "JUDITE",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "judite.jpg",
+          "descricao": "Milkshake especial Judite - 500ml",
+          "sabor": "Abacaxi com coco",
+          "ingredientes": "Leite integral, sorvete de abacaxi, coco ralado, chantilly, pedaços de abacaxi e calda de abacaxi",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630918669927&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "manhosa",
+          "nome": "MANHOSA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "manhosa.jpg",
+          "descricao": "Milkshake especial Manhosa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630999828257&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "emilia",
+          "nome": "EMÍLIA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "emilia.jpg",
+          "descricao": "Milkshake especial Emília - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630944664114&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "flocos-de-neve",
+          "nome": "FLOCOS DE NEVE",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "flocos-de-neve.jpg",
+          "descricao": "Milkshake especial Flocos de Neve - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630993172249&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "graciosa",
+          "nome": "GRACIOSA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "graciosa.jpg",
+          "descricao": "Milkshake especial Graciosa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630938157651&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "cheirosa",
+          "nome": "CHEIROSA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "cheirosa.jpg",
+          "descricao": "Milkshake especial Cheirosa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630934727745&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "dengosa",
+          "nome": "DENGOSA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "dengosa.jpg",
+          "descricao": "Milkshake especial Dengosa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630937998121&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "missy",
+          "nome": "MISSY",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "missy.jpg",
+          "descricao": "Milkshake especial Missy - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630937998121&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "xonada",
+          "nome": "XONADA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "xonada.jpg",
+          "descricao": "Milkshake especial Xonada - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630986817917&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "moo",
+          "nome": "MOO",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "moo.jpg",
+          "descricao": "Milkshake especial Moo - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630929582683&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        }
+      ]
+    },
+    {
+      "nome": "DE CAFEZIN",
+      "produtos": [
+        {
+          "id": "mineira",
+          "nome": "MINEIRA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "mineira.jpg",
+          "descricao": "Milkshake especial Mineira - 500ml",
+          "sabor": "Café com chocolate",
+          "ingredientes": "Leite integral, sorvete de café, calda de chocolate, chantilly e café espresso",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630972261123&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "preta",
+          "nome": "PRETA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "preta.jpg",
+          "descricao": "Milkshake especial Preta - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630938193571&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "bisa",
+          "nome": "BISA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "bisa.jpg",
+          "descricao": "Milkshake especial Bisa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630974244617&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        }
+      ]
+    },
+    {
+      "nome": "CHOCOLATUDOS",
+      "produtos": [
+        {
+          "id": "diva",
+          "nome": "DIVA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "diva.jpg",
+          "descricao": "Milkshake especial Diva - 500ml",
+          "sabor": "Chocolate com avelã",
+          "ingredientes": "Leite integral, sorvete de chocolate, avelãs torradas, calda de chocolate, chantilly e chocolate granulado",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630915958877&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "domino",
+          "nome": "DOMINÓ",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "domino.jpg",
+          "descricao": "Milkshake especial Dominó - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630915958877&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "preciosa",
+          "nome": "PRECIOSA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "preciosa.jpg",
+          "descricao": "Milkshake especial Preciosa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630963344786&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "tempestade",
+          "nome": "TEMPESTADE",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "tempestade.jpg",
+          "descricao": "Milkshake especial Tempestade - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630964947898&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "poderosa",
+          "nome": "PODEROSA",
+          "preco": "18.00",
+          "precoPromocao": "0",
+          "imagem": "poderosa.jpg",
+          "descricao": "Milkshake especial Poderosa - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630959926689&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        }
+      ]
+    },
+    {
+      "nome": "KIDS",
+      "produtos": [
+        {
+          "id": "bolinha",
+          "nome": "BOLINHA",
+          "preco": "12.00",
+          "precoPromocao": "0",
+          "imagem": "bolinha.jpg",
+          "descricao": "Milkshake especial Bolinha - 500ml",
+          "sabor": "Chocolate com bolinhas coloridas",
+          "ingredientes": "Leite integral, sorvete de chocolate, chantilly e confeitos coloridos",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630947659799&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "chicletin",
+          "nome": "CHICLETIN",
+          "preco": "12.00",
+          "precoPromocao": "0",
+          "imagem": "chicletin.jpg",
+          "descricao": "Milkshake especial Chicletin - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630963569695&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "branca",
+          "nome": "BRANCA",
+          "preco": "12.00",
+          "precoPromocao": "0",
+          "imagem": "branca.jpg",
+          "descricao": "Milkshake especial Branca - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630917248957&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        }
+      ]
+    },
+    {
+      "nome": "ALCOÓLICOS",
+      "produtos": [
+        {
+          "id": "esmeralda",
+          "nome": "ESMERALDA",
+          "preco": "25.00",
+          "precoPromocao": "0",
+          "imagem": "esmeralda.jpg",
+          "descricao": "Milkshake especial Esmeralda - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630916583997&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "joia-rara",
+          "nome": "JOIA RARA",
+          "preco": "25.00",
+          "precoPromocao": "0",
+          "imagem": "joia-rara.jpg",
+          "descricao": "Milkshake especial Joia Rara - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630945336125&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "rubi",
+          "nome": "RUBI",
+          "preco": "25.00",
+          "precoPromocao": "0",
+          "imagem": "rubi.jpg",
+          "descricao": "Milkshake especial Rubi - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630943627971&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "gina",
+          "nome": "GINA",
+          "preco": "25.00",
+          "precoPromocao": "0",
+          "imagem": "gina.jpg",
+          "descricao": "Milkshake especial Gina - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630926121175&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        }
+      ]
+    },
+    {
+      "nome": "PREMIUM",
+      "produtos": [
+        {
+          "id": "estrela",
+          "nome": "ESTRELA",
+          "preco": "28.00",
+          "precoPromocao": "0",
+          "imagem": "estrela.jpg",
+          "descricao": "Milkshake especial Estrela - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630935642247&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        },
+        {
+          "id": "carmela",
+          "nome": "CARMELA",
+          "preco": "28.00",
+          "precoPromocao": "0",
+          "imagem": "carmela.jpg",
+          "descricao": "Milkshake especial Carmela - 500ml",
+          "checkoutUrl": "https://seguro.milkmoopedidos.shop/api/public/shopify?product=1630978823648&store=16309",
+          "disponivel": true,
+          "tiposComplementos": [],
+          "opcoes": {
+            "semGluten": true,
+            "semLactose": false
+          }
+        }
+      ]
+    }
+  ],
+  "alergenicos": "ATENÇÃO! TODOS OS NOSSOS MILKSHAKES PODEM CONTER TRAÇOS DE ALERGÊNICOS: SOJA, CASTANHAS, LACTOSE, GLÚTEN E OVO. PARA MAIS INFORMAÇÕES CONSULTE NOSSA TABELA NUTRICIONAL."
+}
